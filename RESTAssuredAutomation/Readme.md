@@ -1,4 +1,4 @@
-# Rest Assured using Java TestNG framework
+# RestAssuredAutomation. Rest Assured using Java TestNG framework
 
 ## An example project written in Rest Assured using Java TestNG framework to validate GET, POST and PUT request.
 
