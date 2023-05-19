@@ -1,0 +1,46 @@
+package tests;
+
+import org.json.simple.JSONObject;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
+
+import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
+import io.restassured.response.Response;
+
+import java.util.Map;
+import java.util.HashMap;
+import java.util.List;
+
+public class PostUser extends Base{
+	@Test
+	public void testPost() {
+
+		JSONObject payload = new JSONObject();
+		
+		payload.put("id", "9");
+		payload.put("email", "ninjas@123.in");
+		payload.put("first_name", "Nandan");
+		payload.put("last_name", "Gowda");
+		payload.put("avatar", "https://reqres.in/img/faces/4-image.jpg");
+
+	 
+		
+		int statuscode = RestAssured
+				.given()
+					.spec(commonspec)
+					.pathParam("id", "3")
+					.body(payload.toString())
+				.when()
+				
+					.post(resourcepath)
+				.then()
+					.log().all()
+					.extract().response().statusCode();
+			
+
+	}
+}

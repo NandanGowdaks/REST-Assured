@@ -1,0 +1,43 @@
+package tests;
+
+import org.testng.asserts.*;
+import org.testng.annotations.Test;
+
+import io.restassured.*;
+import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.when;
+import io.restassured.response.Response;
+
+public class TestExamples {
+
+	@Test
+	public void test_1() {
+		
+		Response response= get("https://reqres.in/api/users?page=2");
+		System.out.println(response.statusCode());
+		System.out.println(response.getBody().asString());
+	}
+
+	
+	
+	private Response get(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	/*@Test
+	public void test_2() {
+		
+		
+	}
+
+
+
+	private void given() {
+		// TODO Auto-generated method stub
+		
+	}
+	*/
+}

@@ -1,0 +1,73 @@
+package tests;
+
+import org.json.simple.JSONObject;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
+
+import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
+import io.restassured.response.Response;
+
+import java.util.Map;
+import java.util.HashMap;
+import java.util.List;
+
+public class GetandPostEx extends Base {
+	Response res;
+	String resourcepath = "?page={id}";
+
+	@Test
+	public void testGet() {
+
+		res = RestAssured.given().spec(commonspec).pathParam("id", "1").when().get(resourcepath);
+		Assert.assertEquals(res.statusCode(), 200);
+
+		JsonPath j = new JsonPath(res.asString());
+
+		int s = j.getInt("data.size()");
+		int a = j.getInt("total_pages");
+	//4.	Filter out list of First name and email of all the Users obtained in GET call	
+		for (int i = 0; i < s; i++) {
+
+			String email = j.getString("data[" + i + "].email");
+			String fname = j.getString("data[" + i + "].first_name");
+			System.out.println(email);
+			System.out.println(fname);
+		}
+		getDetailsByID(j, "4");
+
+	}
+	
+	
+   //	Filter out user details by giving ID
+	public void getDetailsByID(JsonPath j, String id) {
+		String email = null;
+		String fname = null;
+		String id1 =null;
+		String lname = null;
+		String avatar = null;
+		int s = j.getInt("data.size()");
+		for (int i = 0; i < s; i++) {
+			if (j.getString("data[" + i + "].id").equals(id)) {
+				id1 = j.getString("data[" + i + "].id");
+				email = j.getString("data[" + i + "].email");
+				fname = j.getString("data[" + i + "].first_name");
+				lname = j.getString("data[" + i + "].last_name");
+				avatar = j.getString("data[" + i + "].avatar");
+				
+			}
+
+		}
+		System.out.println(id1);
+		System.out.println(email);
+		System.out.println(fname);
+		System.out.println(lname);
+		System.out.println(avatar);
+	}
+
+
+
+}

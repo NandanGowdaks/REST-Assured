@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="3" total="6" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-05-18T11:07:19 IST" name="Suite" finished-at="2023-05-18T11:07:21 IST" duration-ms="2429">
+    <groups>
+    </groups>
+    <test started-at="2023-05-18T11:07:19 IST" name="Test" finished-at="2023-05-18T11:07:21 IST" duration-ms="2429">
+      <class name="tests.GetandPostEx">
+        <test-method signature="testGet()[pri:0, instance:tests.GetandPostEx@6a192cfe]" started-at="2023-05-18T11:07:20 IST" name="testGet" finished-at="2023-05-18T11:07:21 IST" duration-ms="739" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGet -->
+      </class> <!-- tests.GetandPostEx -->
+      <class name="tests.PostUser">
+        <test-method signature="testPost()[pri:0, instance:tests.PostUser@5119fb47]" started-at="2023-05-18T11:07:21 IST" name="testPost" finished-at="2023-05-18T11:07:21 IST" duration-ms="406" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPost -->
+      </class> <!-- tests.PostUser -->
+      <class name="tests.PutUser">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.PutUser@7722c3c3]" started-at="2023-05-18T11:07:18 IST" name="setUp" finished-at="2023-05-18T11:07:19 IST" duration-ms="593" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testPut()[pri:0, instance:tests.PutUser@7722c3c3]" started-at="2023-05-18T11:07:19 IST" name="testPut" finished-at="2023-05-18T11:07:20 IST" duration-ms="1261" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPut -->
+      </class> <!-- tests.PutUser -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

@@ -1,0 +1,101 @@
+package tests;
+import org.json.simple.JSONObject;
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
+
+import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
+import io.restassured.response.Response;
+
+import java.util.Map;
+import java.util.HashMap;
+import java.util.List;
+public class GetandPostEx extends Base{
+	Response res;
+	
+@Test
+	public void testGet() {
+	//https://reqres.in/api/users?page=1
+	/*
+	 * baseURI= "https://reqres.in/api"; given().
+	 * get("/users?page=1").then().statusCode(200).log().all();
+	 */
+	
+	String resourcepath = "/users?page=1";
+	
+	 res =
+			RestAssured
+			.given()
+				.spec(commonspec)
+				
+			.when()
+				.get(resourcepath);
+	
+	//System.out.println(res.body().jsonPath().getString("data[1].email"));
+	 JsonPath j = new JsonPath(res.asString());
+
+     //get values of JSON array after getting array size
+     int s = j.getInt("data.size()");
+     for(int i = 0; i < s; i++) {
+    	 
+        String email = j.getString("data["+i+"].email");
+        String fname = j.getString("data["+i+"].first_name");
+        //System.out.println(email);
+        //System.out.println(fname);
+			
+       
+				
+				//.jsonPath().getList("email");
+	//System.out.println(names);
+	//body("data.first_name",hasItems("George","Rachel")).
+	//body("data[4].first_name", equalTo("George"));
+
+}
+     getDetailsByID(j,4);
+/*@Test
+	public void testpost() {
+	Map<String,Object> map=new HashMap<String,Object>();
+//	map.put("name", "Nandan");
+//	map.put("Job","Tech");	
+//	System.out.println(map);
+	
+	JSONObject request= new JSONObject();
+	request.put("name", "Nandan");
+	request.put("Job","Tech");
+	System.out.println(request.toJSONString());
+	
+	baseURI="https://reqres.in/api";
+	given().
+	body(request.toJSONString()).
+	post("/users").then().statusCode(201)
+	.log().all();
+	//body("data.id[]",equals(8));
+	
+}
+*/
+}
+
+public void getDetailsByID(JsonPath j, String id) {
+	/*
+	 * String email = j.getString("data["+i+"].email"); String fname =
+	 * j.getString("data["+i+"].first_name"); System.out.println(email);
+	 * System.out.println(fname);
+	 */
+	String email = null;
+	String fname = null;
+     int s = j.getInt("data.size()");
+     for(int i = 0; i < s; i++) {
+    	if( j.getString("data["+i+"].id").equals(id)) {
+          email = j.getString("data["+i+"].email");
+          fname = j.getString("data["+i+"].first_name");
+    	}
+         
+ 			
+     }
+     System.out.println(email);
+     System.out.println(fname);
+}
+
+}

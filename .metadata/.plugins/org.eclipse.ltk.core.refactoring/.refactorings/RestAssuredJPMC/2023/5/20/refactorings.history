@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Base.java&apos; to &apos;RESTAssuredAutomation/src/test/java/tests&apos;&#x0D;&#x0A;- Original project: &apos;RestAssuredJPMC&apos;&#x0D;&#x0A;- Destination element: &apos;RESTAssuredAutomation/src/test/java/tests&apos;&#x0D;&#x0A;- Original element: &apos;trello.common.Base.java&apos;" description="Copy compilation unit" destination="=RESTAssuredAutomation/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;tests" element1="/src\/test\/java=/optional=/true=/=/maven.pomderived=/true=/=/test=/true=/&lt;trello.common{Base.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1684339477228" units="1" version="1.0"/>
+</session>
